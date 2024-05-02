@@ -10,7 +10,7 @@ class configuracion
       "driver" => "pdo_sqlsrv", //no utilizada realmente
       "server" => "(local)", //nombre servidor
       "port" => "1433", //puerto por el que escucha las peticiones de la aplicación
-      "database" => "MiniBiblioteca", //nombre de la base de datos
+      "database" => "", //nombre de la base de datos
       "user" => null, //usuario definido para la aplicación
       "pass" => null, //contraseña del usuario
       "charset" => "utf-8"
