@@ -1,7 +1,8 @@
 <?php
+/*
 namespace ElectroVadillo\App\Controller;
 use ElectroVadillo\App\Repository\GestionBdRepositorio;
-
+*/
 class DefaultController
 { 
   public function inicio()
