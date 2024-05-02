@@ -1,2 +1,3 @@
-# Proyecto-MVC-
-Proyecto Comercio Electronico MVC, namespaces.
+# Plantilla MVC 
+Proyecto Comercio Electronico MVC.
+- Funciona mediante namespaces.
