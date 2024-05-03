@@ -3,6 +3,7 @@ session_start();
 error_reporting(E_ALL);
 
 require_once __DIR__ . '/app/conf/rutas.inc'; 
+require_once __DIR__ . '/fuente/Controlador/DefaultController.inc';
 
 // Análisis de la ruta
 if (isset($_GET['ctl'])){
