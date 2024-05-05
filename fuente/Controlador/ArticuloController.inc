@@ -3,6 +3,7 @@ class ArticuloController
 { 
   public function articulosCategoria()
   { 
+    var_dump($_SESSION);
     require_once __DIR__ . '/../../fuente/Repositorio/ArticuloRepositorio.php';
     var_dump($_GET['idCategoria']);
     $articulos = (new ArticuloRepositorio())->getArticulosPorCategoria($_GET['idCategoria']);

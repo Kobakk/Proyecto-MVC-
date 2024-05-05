@@ -7,6 +7,7 @@ class DefaultController
 { 
   public function inicio()
   { 
+    var_dump($_SESSION);
     require __DIR__ . '/../Repositorio/ArticuloRepositorio.php';
     $categorias = (new ArticuloRepositorio())->getCategorias();
     require __DIR__ . '/../../app/plantillas/inicio.inc';
