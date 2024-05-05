@@ -10,7 +10,15 @@
 <body>
   <header>
     <nav>
-      <a href="index.php?ctl=inicio">Inicio</a> |
+      <a href="index.php?ctl=inicio">Inicio</a>
+
+      <?php if(isset($_SESSION['usuario'])): ?> 
+          <a href="">Cerrar Session</a>
+          <?php if(isset($_SESSION['pedido'])): ?>
+            <a href="">Terminar Pedido</a>
+          <?php endif;?>
+      <?php endif;?>
+      
     </nav>
   </header>
 

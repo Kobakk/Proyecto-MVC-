@@ -4,6 +4,7 @@ error_reporting(E_ALL);
 
 require_once __DIR__ . '/app/conf/rutas.inc'; 
 require_once __DIR__ . '/fuente/Controlador/DefaultController.inc';
+require_once __DIR__ . '/fuente/Controlador/ArticuloController.inc';
 
 // Análisis de la ruta
 if (isset($_GET['ctl'])){

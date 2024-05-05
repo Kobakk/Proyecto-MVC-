@@ -1,5 +1,5 @@
 <?php
-namespace ElectroVadillo\Core;
+//namespace ElectroVadillo\Core;
 
 require_once __DIR__ . '/../app/conf/Configuracion.inc';
 
@@ -9,7 +9,7 @@ class ConexionBd
 
   public function __construct()
   { 
-    $params = (new \Configuracion())->getDbParams();
+    $params = (new Configuracion())->getDbParams();
 
     try
     { 
