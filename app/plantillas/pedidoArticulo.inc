@@ -5,8 +5,10 @@
     qui numquam amet necessitatibus, nemo unde accusamus dolore illum
     provident modi obcaecati excepturi voluptatum?
 </p>
-<?php foreach($articulos as $articulo):?>
-    <li><a href="index.html?ctl=pedido&codArticulo<?=$articulo['codigo']?>"><?=$articulo['codigo']?></a></li>
-<?php endforeach;?>
+<form action="" method="post">
+    <label for="cantidad">Cantidad</label><br>
+    <input type="number" name="cantidad" min="0" max="">
+    <button type="submit">Enviar</button>
+</form>
 <?php $contenido = ob_get_clean();?>
 <?php include 'base.inc'?>
