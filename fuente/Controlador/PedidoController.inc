@@ -19,6 +19,7 @@ class PedidoController
       (new ArticuloRepositorio())->acutializarArticulo($pedido['cantidad'], $pedido['codArticulo']);  
       $_SESSION['idPedido'] = (new PedidoRepositorio())->setPedido($pedido);
       (new PedidoRepositorio())->setLineaPedido($pedido, $_SESSION['idPedido']);
+      $_SESSION['totalPrecio'] = $_POST['cantidad'] * $_SESSION['pedido']['precio'];
       unset($_SESSION['pedido']);
       header('Location: index.php?ctl=inicio');
     } else{
@@ -26,6 +27,7 @@ class PedidoController
       require_once __DIR__ . '/../Repositorio/ArticuloRepositorio.php';
       (new ArticuloRepositorio())->acutializarArticulo($pedido['cantidad'], $pedido['codArticulo']);
       (new PedidoRepositorio())->setLineaPedido($pedido, $_SESSION['idPedido']); 
+      $_SESSION['totalPrecio'] += $_POST['cantidad'] * $_SESSION['pedido']['precio'];
       unset($_SESSION['pedido']);
       header('Location: index.php?ctl=inicio');      
     }

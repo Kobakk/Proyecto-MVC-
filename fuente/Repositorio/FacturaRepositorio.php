@@ -22,6 +22,7 @@ class FacturaRepositorio{
             $stn = null;
         }        
     }
+    
     public function setLineaFactura(int  $id, int $idFactura){
         $sql1 = "INSERT INTO lineaFactura (idFactura, codigoArticulo, cantidad, pc)
         VALUES (:idFactura, :codigoArticulo, :cantidad, :pc)";
