@@ -14,9 +14,9 @@
 
       <?php if(isset($_SESSION['usuario'])): ?> 
           <a href="">Cerrar Session</a>
-          <?php if(isset($_SESSION['pedido'])): ?>
-            <a href="">Terminar Pedido</a>
-          <?php endif;?>
+      <?php endif;?>
+      <?php if(isset($_SESSION['idPedido'])): ?>
+            <a href="index.php?ctl=factura">Terminar Pedido</a>
       <?php endif;?>
       
     </nav>

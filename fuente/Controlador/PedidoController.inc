@@ -13,12 +13,23 @@ class PedidoController
       'idCliente'=> 1,
     ];
     var_dump($pedido);
-    require_once __DIR__ . '/../Repositorio/PedidoRepositorio.php';
-    require_once __DIR__ . '/../Repositorio/ArticuloRepositorio.php';
-    (new ArticuloRepositorio())->acutializarArticulo($pedido['cantidad'], $pedido['codArticulo']);  
-    (new PedidoRepositorio())->setPedido($pedido);
-    unset($_SESSION['pedido']);
-    header('Location: index.php?ctl=inicio');
+    if(!$_SESSION['idPedido']){
+      require_once __DIR__ . '/../Repositorio/PedidoRepositorio.php';
+      require_once __DIR__ . '/../Repositorio/ArticuloRepositorio.php';
+      (new ArticuloRepositorio())->acutializarArticulo($pedido['cantidad'], $pedido['codArticulo']);  
+      $_SESSION['idPedido'] = (new PedidoRepositorio())->setPedido($pedido);
+      (new PedidoRepositorio())->setLineaPedido($pedido, $_SESSION['idPedido']);
+      unset($_SESSION['pedido']);
+      header('Location: index.php?ctl=inicio');
+    } else{
+      require_once __DIR__ . '/../Repositorio/PedidoRepositorio.php';
+      require_once __DIR__ . '/../Repositorio/ArticuloRepositorio.php';
+      (new ArticuloRepositorio())->acutializarArticulo($pedido['cantidad'], $pedido['codArticulo']);
+      (new PedidoRepositorio())->setLineaPedido($pedido, $_SESSION['idPedido']); 
+      unset($_SESSION['pedido']);
+      header('Location: index.php?ctl=inicio');      
+    }
+
   }
 
 }
