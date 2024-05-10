@@ -7,6 +7,7 @@ require_once __DIR__ . '/fuente/Controlador/DefaultController.inc';
 require_once __DIR__ . '/fuente/Controlador/ArticuloController.inc';
 require_once __DIR__ . '/fuente/Controlador/PedidoController.inc';
 require_once __DIR__ . '/fuente/Controlador/FacturaController.inc';
+require_once __DIR__ . '/fuente/Controlador/SessionController.inc';
 
 // Análisis de la ruta
 if (isset($_GET['ctl'])){

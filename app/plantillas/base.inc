@@ -11,10 +11,13 @@
   <header>
     <nav>
       <a href="index.php?ctl=inicio">Inicio</a>
-
-      <?php if(isset($_SESSION['usuario'])): ?> 
-          <a href="">Cerrar Session</a>
+      <?php if(!isset($_SESSION['usuario'])): ?> 
+          <a href="index.php?ctl=inicioSesion">Iniciar Sesion</a>
       <?php endif;?>
+      <?php if(isset($_SESSION['usuario'])): ?> 
+          <a href="index.php?ctl=cerrarSesion">Cerrar Session</a>
+      <?php endif;?>
+
       <?php if(isset($_SESSION['idPedido'])): ?>
             <a href="index.php?ctl=factura">Terminar Pedido</a>
       <?php endif;?>

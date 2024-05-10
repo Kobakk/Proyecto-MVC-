@@ -1,8 +1,8 @@
-<h1>Inicio Sesion</h1>
-<form action="index.php?ctl=comprobarSesion" method="post">
-    <label for="email">Email:</label><br>
+<h1>Registrate</h1>
+<form action="index.php?ctl=comprobarRegistro" method="post">
+    <label for="email">Nombre:</label><br>
     <input type="text" name="email">
-    <label for="pwd">Contraseña :</label>
+    <label for="pwd">CorreoElectronico :</label>
     <input type="password" name="pwd"> <br>
     <button type="submit" name="ok">Iniciar Sesion</button>
 

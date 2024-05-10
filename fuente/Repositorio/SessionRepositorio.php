@@ -1,6 +1,6 @@
 <?php
 class SessionRepositorio{
-    public function getUsuarioPorCorreo(string $correo){
+    public function getUsuarioPorCorreo(string $correo):array{
         $sql = "SELECT id, nombre, pwd FROM cliente
         WHERE eCorreo = :eCorreo";
         try{
@@ -9,6 +9,7 @@ class SessionRepositorio{
             $stn = $con->prepare($sql);
             $stn->bindValue(':eCorreo',$correo);
             $stn->execute();
+            return $stn->fetchAll(\PDO::FETCH_ASSOC);
         }catch(\PDOException $ex){
             throw $ex;
         }catch(Exception $ex){
