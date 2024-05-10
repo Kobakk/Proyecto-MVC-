@@ -20,7 +20,55 @@ class PedidoRepositorio{
             $stn = null;
         }
     }
-    public function setLineaPedido(array $pedido, int $id){
+    public function updateLineaPedido(int $codigo,int $cantidad){
+        $sql = "UPDATE lineaPedido 
+                SET cantidad += :cantidad
+                WHERE codArticulo = :codigo";
+        try{
+            require_once __DIR__ . '/../../core/ConexionBd.inc';
+            $con = (new ConexionBd())->getConexion();
+            $stn = $con->prepare($sql);
+            $stn->bindValue(':codigo',$codigo);
+            $stn->bindValue(':cantidad',$cantidad);
+            $stn->execute();
+        }catch(\PDOException $ex){
+            throw $ex;
+        }catch(Exception $ex){
+            throw $ex;
+        }finally{
+            $con = null;
+            $stn = null;
+        }     
+    }
+    //Comprobamos is ya existe el pedido
+    public function comprobarCodArticuloEnLineaPedido(int $codArticulo):bool
+    {
+        $sql = "IF EXISTS 
+                (SELECT * FROM lineaPedido where codArticulo = :codArticulo)
+	            begin
+                select 1;
+                end
+                ELSE
+                begin
+                select 0;
+                end";
+        try{
+            require_once __DIR__ . '/../../core/ConexionBd.inc';
+            $con = (new ConexionBd())->getConexion();
+            $stn = $con->prepare($sql);
+            $stn->bindValue(':codigo',$codigo);
+            $stn->execute();
+            return (bool)$snt->fetchColumn(0);
+        }catch(\PDOException $ex){
+            throw $ex;
+        }catch(Exception $ex){
+            throw $ex;
+        }finally{
+            $con = null;
+            $stn = null;
+        }     
+    }
+    public function setLineaPedido(array $pedido, int $id):int{
         $sql = "INSERT INTO lineaPedido (idPedido, codArticulo,cantidad,pv)
         VALUES (:idPedido,:codArticulo, :cantidad, :pv)";
         try{
@@ -32,6 +80,7 @@ class PedidoRepositorio{
             $stn->bindValue(':cantidad',$pedido['cantidad']);
             $stn->bindValue(':pv',$pedido['precio']);
             $stn->execute();
+            return $con->lastInsertId();
         }catch(\PDOException $ex){
             throw $ex;
         }catch(Exception $ex){
