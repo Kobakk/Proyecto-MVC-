@@ -24,11 +24,7 @@
       
     </nav>
   </header>
-  <div class="formulario">
-    <form action="index.php?ctl=inicioSesion" method="post">
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
+  
   <div id="contenido">
     <?= $contenido ?>
   </div>
